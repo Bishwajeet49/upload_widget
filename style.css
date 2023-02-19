@@ -1,0 +1,307 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+}
+/*code for scrool bar customization*/
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #212121;
+  box-shadow: 1px 2px 7px 3px #212121 inset;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(88, 88, 88);
+  border-radius: 100vw;
+  height: 70px;
+}
+::-webkit-scrollbar:hover {
+  width: 5px;
+}
+::-moz-scrollbar:hover {
+  width: 5px;
+}
+
+@supports (scrollbar-color: rgb(88, 88, 88) #212121) {
+  * {
+    scrollbar-color: rgb(88, 88, 88) #212121;
+    scrollbar-width: thin;
+  }
+}
+.container {
+  height: 100vh;
+  background-color: #befddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main {
+  width: 100%;
+  background-color: #15f37d;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+.row {
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.instruction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.1rem;
+  font-family: "Poppins", sans-serif;
+}
+.upload-icon {
+  color: rgb(15, 15, 15);
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+.task_container {
+  max-height: 50vh;
+  overflow-y: auto;
+  background-color: #1a1f1d;
+}
+
+.task_wrapper {
+  margin-bottom: 0.7rem;
+  margin-left: 0.7rem;
+  margin-right: 0.7rem;
+  display: flex;
+  padding: 5px;
+}
+.task_wrapper:first-child {
+  margin-top: 1rem;
+}
+.task_wrapper:last-child {
+  margin-bottom: 0rem;
+}
+.file_container {
+  display: flex;
+  align-items: center;
+}
+.file_info_wrapper {
+  width: calc(100% - 2.9rem);
+}
+.file_icon_wrapper {
+  display: flex;
+  justify-content: center;
+}
+.file_icon_wrapper img {
+  width: 100%;
+  height: 100%;
+}
+.uploading_info_txt {
+  color: #f3f3f3;
+  margin-top: 5px;
+  font-size: 0.9rem;
+}
+.file_name {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  align-items: center;
+  overflow: hidden;
+  color: rgb(191, 233, 212);
+}
+.progress_container {
+  width: 2.9rem;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.progress_tracker_outer {
+  height: 2rem;
+  width: 2rem;
+  background-image: conic-gradient(
+    rgba(83, 81, 81, 0.521) 80%,
+    rgba(87, 84, 84, 0.459) 0deg
+  );
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+.inner_circle {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+  background-color: #1a1f1d;
+  display: grid;
+  place-items: center;
+}
+.loader {
+  border: 0.5rem solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 0.5rem solid #15f34c;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 1s linear infinite;
+}
+.responseSussesCircle {
+  border: 0.5rem solid #15f34c;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.abort-btn,
+.uploadCancelIcon,
+.doneIcon {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.abort-btn {
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.uploadCancelIcon {
+  color: rgb(236, 19, 19);
+}
+.doneIcon {
+  color: #15f34c;
+}
+/*designing file icon from scratch*/
+/*file icon ourter box*/
+.box_1 {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgb(224, 11, 11);
+  border-radius: 4px;
+  background-color: #2d3531;
+}
+/*file icon extension label-box*/
+.ext_name {
+  color: #fff;
+  background-color: rgb(224, 11, 11);
+  font-weight: bold;
+  font-size: 0.7rem;
+  position: absolute;
+  width: 100%;
+  top: 52%;
+  left: -5px;
+  transform: translate(0, -50%);
+  text-align: center;
+  box-shadow: 1px 1px 3px #969696;
+  border-radius: 2px;
+}
+/* file icon folded triangle from top right corner */
+.triangle {
+  position: absolute;
+  height: 18px;
+  width: 15px;
+  bottom: 0px;
+  top: -8px;
+  right: -7px;
+  transform: rotate(-45deg);
+  background-color: rgb(224, 11, 11);
+  border: 1px solid rgb(255, 255, 255);
+  box-shadow: rgb(192, 192, 192) 0px 3px 6px, rgb(66, 64, 64) 0px 3px 6px;
+}
+/*extra extra small*/
+@media screen and (min-width: 0px) {
+  .main {
+    height: auto;
+    width: calc(100% - 10px);
+  }
+  .loader {
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #15f34c;
+  }
+  .responseSussesCircle {
+    border: 2px solid #15f34c;
+  }
+  .file_info_wrapper {
+    width: calc(100% - 4.6rem); /*2.3+2.3 rem*/
+  }
+  .progress_container,
+  .file_icon_wrapper {
+    width: 2.3rem;
+  }
+  .file_icon_wrapper {
+    height: 2.7rem;
+  }
+  .file_icon_container {
+    display: flex;
+    align-items: center;
+  }
+  .file_info_wrapper {
+    padding: 0px 5px;
+  }
+} /*extra small*/
+@media screen and (min-width: 500px) {
+  .main {
+    max-height: 380px;
+    width: 480px;
+  }
+  .file_info_wrapper {
+    padding: 0px 1rem;
+  }
+}
+
+/*small*/
+@media screen and (min-width: 576px) {
+  .main {
+    max-height: 430px;
+    width: 530px;
+  }
+  .file_info_wrapper {
+    padding: 0px 1.5rem;
+  }
+}
+/*medium*/
+@media screen and (min-width: 768px) {
+  .main {
+    max-height: 450px;
+    width: 550px;
+  }
+}
+
+/*large*/
+@media screen and (min-width: 993px) {
+  .main {
+    max-height: 500px;
+    width: 600px;
+  }
+}
+/*extra large*/
+@media screen and (min-width: 1300px) {
+  .main {
+    max-height: 600px;
+    width: 700px;
+  }
+}
+
+/*break point for height*/
+@media screen and (max-height: 320px) {
+  .main {
+    max-height: none;
+    height: 100vh;
+    width: 100%;
+  }
+  .task_container {
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+}
